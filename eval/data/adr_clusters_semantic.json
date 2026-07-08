@@ -972,3 +972,4 @@
     "context_preview": "The PostgMem system experienced critical connection pool exhaustion under load, manifesting as PostgreSQL \"too many clie",
     "topic": "Memorizer: vector embeddings, chunking, LLM service"
   }
+]
