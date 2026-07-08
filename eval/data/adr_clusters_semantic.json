@@ -1,0 +1,974 @@
+[
+  {
+    "source_file": "edx_0004-instructor-enrollment-api-spec.rst",
+    "cluster": 15,
+    "cluster_prob": 0.8356744851329408,
+    "context_preview": "The existing enrollment API (v1) has several limitations that make it difficult to use in modern applications. A new v2 ",
+    "topic": "edx: Enrollment APIs, Studio APIs, ORA"
+  },
+  {
+    "source_file": "edx_0001-field-to-store-enabled-disabled-status.rst",
+    "cluster": 6,
+    "cluster_prob": 1.0,
+    "context_preview": "While implementing a UI to enable/disable teams we ran into issues due to the\nway teams is considered enabled or disable",
+    "topic": "edx: Discussions, teams, course features"
+  },
+  {
+    "source_file": "edx_0006-role-of-xblock.rst",
+    "cluster": 8,
+    "cluster_prob": 1.0,
+    "context_preview": "XBlock was first envisioned as a nearly all-encompassing, dynamic system. How\nmany points is a problem worth? Call its `",
+    "topic": "edx: XBlocks, content structure, modulestore"
+  },
+  {
+    "source_file": "edx_0003-use-jwt-as-oauth-tokens-remove-openid-connect.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "The edX system has external OAuth2 client applications, including edX Mobile apps\nand external partner services. In addi",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_0001-record-architecture-decisions.rst",
+    "cluster": 4,
+    "cluster_prob": 0.3631049803145784,
+    "context_preview": "We would like to keep a historical record on the architectural\ndecisions we make with this app as it evolves over time.",
+    "topic": "Backstage + govuk: ADR meta, plugins, general architecture"
+  },
+  {
+    "source_file": "edx_0001-xblock-content-overrides.rst",
+    "cluster": 8,
+    "cluster_prob": 0.9753386001838122,
+    "context_preview": "Content Type Gating requires that users be prevented from viewing\nor interacting with an XBlock, and instead being shown",
+    "topic": "edx: XBlocks, content structure, modulestore"
+  },
+  {
+    "source_file": "edx_0001-gradebook-api.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "We are implementing a \"Writable Gradebook\" feature from the instructor dashboard.\nThis feature supports both the reading",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_0002-matriculation-on-user_social_auth_change.rst",
+    "cluster": 16,
+    "cluster_prob": 1.0,
+    "context_preview": "Georgia Tech has been enrolling learners into its Master's programs\nfor a long time, using enterprise-oriented APIs for ",
+    "topic": "edx: Program enrollments, Georgia Tech, access"
+  },
+  {
+    "source_file": "edx_0002-waffle-utils-extraction.rst",
+    "cluster": 7,
+    "cluster_prob": 1.0,
+    "context_preview": "The waffle utilities in this app were created in edx-platform, but are generally useful across IDAs.",
+    "topic": "edx: Waffle flags / toggles"
+  },
+  {
+    "source_file": "edx_0002-restful-studio-apis-for-MFE.rst",
+    "cluster": 15,
+    "cluster_prob": 1.0,
+    "context_preview": "New MFEs which are in development, need to use studio APIs to interact with course tabs\nand advanced course settings. Cu",
+    "topic": "edx: Enrollment APIs, Studio APIs, ORA"
+  },
+  {
+    "source_file": "edx_0025-standardize-serializer-usage.rst",
+    "cluster": 13,
+    "cluster_prob": 1.0,
+    "context_preview": "Many Open edX platform API endpoints manually construct JSON responses using Python dictionaries instead of Django REST ",
+    "topic": "edx: API standardization (serializers, errors, filtering)"
+  },
+  {
+    "source_file": "edx_0005-in-context-discussion-course-blocks.rst",
+    "cluster": 6,
+    "cluster_prob": 1.0,
+    "context_preview": "In the `ADR 0004 <./0004-in-context-discussions-linking.rst>`_ we investigated\nhow to link a discussion to a unit. We al",
+    "topic": "edx: Discussions, teams, course features"
+  },
+  {
+    "source_file": "edx_0001-refactor-waffle-flag-default.rst",
+    "cluster": 7,
+    "cluster_prob": 1.0,
+    "context_preview": "While working on the toggle reports, it became clear that the value for WaffleFlags (and derivatives like CourseWaffleFl",
+    "topic": "edx: Waffle flags / toggles"
+  },
+  {
+    "source_file": "edx_0006-discussions-api-fetch-inactive-providers.rst",
+    "cluster": 6,
+    "cluster_prob": 0.9094341702542655,
+    "context_preview": "In [ADR 003](./0003-configuration-rest-api.rst) an API was proposed for\ndiscussion configuration. This proposed a single",
+    "topic": "edx: Discussions, teams, course features"
+  },
+  {
+    "source_file": "backstage_adr001-add-adr-log.md",
+    "cluster": 4,
+    "cluster_prob": 0.4084986613830669,
+    "context_preview": "",
+    "topic": "Backstage + govuk: ADR meta, plugins, general architecture"
+  },
+  {
+    "source_file": "edx_001-bulk-email-content-sanitization.rst",
+    "cluster": 15,
+    "cluster_prob": 0.5821414011742576,
+    "context_preview": "",
+    "topic": "edx: Enrollment APIs, Studio APIs, ORA"
+  },
+  {
+    "source_file": "edx_0003-ora-api-spec.rst",
+    "cluster": 15,
+    "cluster_prob": 0.7846846735727419,
+    "context_preview": "The Instructor Dashboard is being migrated to a Micro-Frontend (MFE) architecture,\nwhich requires stable, well-defined, ",
+    "topic": "edx: Enrollment APIs, Studio APIs, ORA"
+  },
+  {
+    "source_file": "backstage_adr012-use-luxon-locale-and-date-presets.md",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "User's locales will have their own style of reading dates. It's counter\nintuitive to not have dates formatted in their f",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_0001-program-enrollment-data-integrity.rst",
+    "cluster": 16,
+    "cluster_prob": 1.0,
+    "context_preview": "For the sake of fundamental data integrity, we are introducing 2 unique\nconstraints on the ``program_enrollments.Program",
+    "topic": "edx: Program enrollments, Georgia Tech, access"
+  },
+  {
+    "source_file": "edx_001-course-live.rst",
+    "cluster": 15,
+    "cluster_prob": 1.0,
+    "context_preview": "The new `Course Authoring MFE`_ includes a new UX called \"Pages and Resources\"\nfor configuring different aspects of the ",
+    "topic": "edx: Enrollment APIs, Studio APIs, ORA"
+  },
+  {
+    "source_file": "edx_0001-access-messages.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "In ``course_duration_limits``, we are adding a new permissions\nstate that will restrict the user from entering the cours",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_0004-persistent-grade-overrides.rst",
+    "cluster": 14,
+    "cluster_prob": 1.0,
+    "context_preview": "It is sometimes necessary to override a learner's score for an entire subsection/assignment.\nFor example, for a graded a",
+    "topic": "edx: Persistent grades, grade overrides"
+  },
+  {
+    "source_file": "edx_0033-standardize-filter-sort-using-django-filter.rst",
+    "cluster": 13,
+    "cluster_prob": 1.0,
+    "context_preview": "Filtering and sorting syntax varies across Open edX APIs (e.g., inconsistent parameter names such as\n``course_key`` vs `",
+    "topic": "edx: API standardization (serializers, errors, filtering)"
+  },
+  {
+    "source_file": "memorizer_2025-05-23-asynchronous-memory-chunking-with-actors.md",
+    "cluster": 0,
+    "cluster_prob": 0.9425546796617025,
+    "context_preview": "PostgMem faced a vector embedding granularity problem where large documents had \"averaged\" embeddings that made specific",
+    "topic": "Memorizer: vector embeddings, chunking, LLM service"
+  },
+  {
+    "source_file": "edx_0001-add-external-id-mapping.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "The Need for storing an external ID for a course run in edx platform primarily\ncomes from BootCamps. Bootcamp class obje",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_0029-standardize-error-responses.rst",
+    "cluster": 13,
+    "cluster_prob": 0.5586748139308108,
+    "context_preview": "Open edX APIs currently return errors in multiple incompatible shapes (e.g., ``{\"error\": ...}``,\n``{\"detail\": ...}``, ne",
+    "topic": "edx: API standardization (serializers, errors, filtering)"
+  },
+  {
+    "source_file": "memorizer_2025-05-23-migration-from-ollama-to-ollama-sharp.md",
+    "cluster": 0,
+    "cluster_prob": 0.34555710406730133,
+    "context_preview": "PostgMem's LLM service originally used the `Ollama` package (tryAGI/Ollama v1.15.0) for intelligent memory chunking. Dur",
+    "topic": "Memorizer: vector embeddings, chunking, LLM service"
+  },
+  {
+    "source_file": "edx_0007-include-organizations-in-tokens.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "Status of Organizational Access to edX APIs\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nExternal edX applications would",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_0004-service-layer-for-contentstore-views.rst",
+    "cluster": 13,
+    "cluster_prob": 0.5257870530910033,
+    "context_preview": "- The recent introduction of the public authoring API, which shares business logic with existing APIs for Micro-Frontend",
+    "topic": "edx: API standardization (serializers, errors, filtering)"
+  },
+  {
+    "source_file": "edx_0003-reduce-bokchoy-testing.rst",
+    "cluster": 0,
+    "cluster_prob": 0.16336381445064935,
+    "context_preview": "edx-platform bokchoy tests are slow, flaky and difficult to debug.  A quick assessment of their value shows that they mi",
+    "topic": "Memorizer: vector embeddings, chunking, LLM service"
+  },
+  {
+    "source_file": "edx_0019-oep-58-atlas-translations-design.rst",
+    "cluster": 9,
+    "cluster_prob": 0.5037494923485556,
+    "context_preview": "OEP-58 Translation Management overview\n--------------------------------------\n\nThe `Translation Management update OEP-58",
+    "topic": "edx: Translations, plugins, Django infra"
+  },
+  {
+    "source_file": "edx_0007-sys-path-modification-removal.rst",
+    "cluster": 9,
+    "cluster_prob": 1.0,
+    "context_preview": "Early in the life of edx-platform, code was added to the django settings to put certain libraries direcly into the pytho",
+    "topic": "edx: Translations, plugins, Django infra"
+  },
+  {
+    "source_file": "edx_0004-waffle-util-namespacing.rst",
+    "cluster": 7,
+    "cluster_prob": 1.0,
+    "context_preview": "The toggle classes WaffleFlag and WaffleSwitch rely on several namespace classes (WaffleNamespace, WaffleSwitchNamespace",
+    "topic": "edx: Waffle flags / toggles"
+  },
+  {
+    "source_file": "edx_0002-inter-app-apis.rst",
+    "cluster": 9,
+    "cluster_prob": 0.6704717134794793,
+    "context_preview": "The edx-platform Django project is a conglomeration of different LMS and Studio\nfeatures written in the structure of Dja",
+    "topic": "edx: Translations, plugins, Django infra"
+  },
+  {
+    "source_file": "edx_0008-secret-key-usage.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "Django's Secret key is used by Django to cryptographically sign various\ncapabilities in Django.  It is also used by the ",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_0030-ensure-get-requests-are-idempotent.rst",
+    "cluster": 12,
+    "cluster_prob": 0.6130245906634997,
+    "context_preview": "Some Open edX endpoints use ``GET`` requests that mutate **domain state** as a\nside-effect \u2014 for example, firing openedx",
+    "topic": "edx: Logging, monitoring, idempotency"
+  },
+  {
+    "source_file": "edx_0013-library-reference-content-block.rst",
+    "cluster": 8,
+    "cluster_prob": 1.0,
+    "context_preview": "Currently, courses are being stored in Modulestore (MongoDB) and content libraries\nare stored in both Modulestore (libra",
+    "topic": "edx: XBlocks, content structure, modulestore"
+  },
+  {
+    "source_file": "edx_0001-discussion-configuration-api.rst",
+    "cluster": 6,
+    "cluster_prob": 1.0,
+    "context_preview": "As part of the BD-03 initiative (Blended Development, Project 3),\nwe want to enable third-party discussion providers to ",
+    "topic": "edx: Discussions, teams, course features"
+  },
+  {
+    "source_file": "edx_weekly_learning_goals_design.rst",
+    "cluster": 10,
+    "cluster_prob": 1.0,
+    "context_preview": "Weekly learning goals is a feature that allows users to set a per-course learning goal and sends users goal reminder ema",
+    "topic": "edx: Learning goals, calendar, email, events"
+  },
+  {
+    "source_file": "backstage_adr010-luxon-date-library.md",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "Date formatting (e.g. `a day ago`) and calculations are common within Backstage.\nSome of these useful features are not s",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_001-programs-cache.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "The LMS in edx-platform has a limited understanding of the structure and content of programs, as they are stored authori",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_0002-extract-plugins-infrastructure.rst",
+    "cluster": 9,
+    "cluster_prob": 0.6749244137580692,
+    "context_preview": "",
+    "topic": "edx: Translations, plugins, Django infra"
+  },
+  {
+    "source_file": "edx_0016-add-scope-user-id-for-jwt-client-credentials.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "This ADR builds upon ADR 0015: Add Scope user_id for JWT Token. It inherits the context from that ADR, including the ini",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_006-cert-date-override.rst",
+    "cluster": 11,
+    "cluster_prob": 0.926976985059648,
+    "context_preview": "",
+    "topic": "edx: Certificates, cert dates"
+  },
+  {
+    "source_file": "edx_0002-logging-and-monitoring-expected-errors-removed.rst",
+    "cluster": 12,
+    "cluster_prob": 1.0,
+    "context_preview": "The setting ``EXPECTED_ERRORS`` was used for both expected and ignored errors in edx-platform.\n\nThe functionality suppor",
+    "topic": "edx: Logging, monitoring, idempotency"
+  },
+  {
+    "source_file": "edx_0018-standarize-django-po-files.rst",
+    "cluster": 9,
+    "cluster_prob": 1.0,
+    "context_preview": "- The edx-platform splits its translations into ``mako-studio.po``,\n  ``django-partial.po``, and 9 other files.  This wa",
+    "topic": "edx: Translations, plugins, Django infra"
+  },
+  {
+    "source_file": "edx_002-processing-scheduled-instructor-tasks.rst",
+    "cluster": 10,
+    "cluster_prob": 0.9176340407820859,
+    "context_preview": "",
+    "topic": "edx: Learning goals, calendar, email, events"
+  },
+  {
+    "source_file": "edx_0003-permissions-via-bridgekeeper.rst",
+    "cluster": 5,
+    "cluster_prob": 1.0,
+    "context_preview": "In `0002. Use django-rules for Permissions and Tracks`_, the case was\nlaid out for using `django-rules`_ to manage permi",
+    "topic": "edx: Permissions, ratelimiting, SSO"
+  },
+  {
+    "source_file": "edx_0036-normalize-deeply-nested-json-apis.rst",
+    "cluster": 13,
+    "cluster_prob": 0.6816616442326623,
+    "context_preview": "Some APIs return deeply nested JSON payloads (course structures, block trees, progress views).\nThis makes payloads hard ",
+    "topic": "edx: API standardization (serializers, errors, filtering)"
+  },
+  {
+    "source_file": "edx_0006-enforce-scopes-in-LMS-APIs.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "Although external edX clients, as Restricted Applications, can use edX\nas an Identity Provider, they cannot successfully",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_0003-configuration-rest-api.rst",
+    "cluster": 6,
+    "cluster_prob": 1.0,
+    "context_preview": "As part of the BD-03 initiative (Blended Development, Project 3),\nwe have previously created a discussion provider confi",
+    "topic": "edx: Discussions, teams, course features"
+  },
+  {
+    "source_file": "backstage_adr011-plugin-package-structure.md",
+    "cluster": 4,
+    "cluster_prob": 0.3206896658241084,
+    "context_preview": "A core feature of Backstage is the extensibility via plugins. Even most of the core features\nare implemented as plugins.",
+    "topic": "Backstage + govuk: ADR meta, plugins, general architecture"
+  },
+  {
+    "source_file": "edx_0013-mobile-migration-to-jwt.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "The Open edX mobile apps contain the final usage of the deprecated opaque Bearer access tokens, as documented in the `OA",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_0001-group-access-overrides.rst",
+    "cluster": 16,
+    "cluster_prob": 0.8412635247526001,
+    "context_preview": "In order to implement Feature Based Enrollment (FBE), we need to be able\nto automatically restrict content to a specific",
+    "topic": "edx: Program enrollments, Georgia Tech, access"
+  },
+  {
+    "source_file": "edx_0004-in-context-discussions-linking.rst",
+    "cluster": 6,
+    "cluster_prob": 1.0,
+    "context_preview": "As part of the BD-38 initiative (Blended Development, Project 38), we are\ninvestigating a new way to set up discussions ",
+    "topic": "edx: Discussions, teams, course features"
+  },
+  {
+    "source_file": "edx_0001-sso-history-in-support.rst",
+    "cluster": 5,
+    "cluster_prob": 0.8969940076757377,
+    "context_preview": "SSO History was one of the feature requested by support that provides the \nhistorical data of any particular SSO record ",
+    "topic": "edx: Permissions, ratelimiting, SSO"
+  },
+  {
+    "source_file": "edx_0016-add-notifications-app.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "We are planning to build a notification framework that can be leveraged by platform apps/workflows like forums, grading,",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_0001-addition-to-core-repo.rst",
+    "cluster": 9,
+    "cluster_prob": 0.637048573956564,
+    "context_preview": "The transition to a more modular architecture for edx-platorm has been\nstrengthened by the acceptance of the `No new Dja",
+    "topic": "edx: Translations, plugins, Django infra"
+  },
+  {
+    "source_file": "edx_0009_simplify_ratelimiting.rst",
+    "cluster": 5,
+    "cluster_prob": 0.9413815115490101,
+    "context_preview": "edx-platform currently uses multiple different ratelimiting tools which can\nlead to confusion and difficulty understandi",
+    "topic": "edx: Permissions, ratelimiting, SSO"
+  },
+  {
+    "source_file": "backstage_adr015-jsx-loader-structure.md",
+    "cluster": 4,
+    "cluster_prob": 1.0,
+    "context_preview": "Until now there hasn't been a clear standard for how to define options that are intended to provide JSX elements or comp",
+    "topic": "Backstage + govuk: ADR meta, plugins, general architecture"
+  },
+  {
+    "source_file": "edx_0015-add-scope-user-id-for-jwt-password-grant.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "In Feb 2018, to enable analytics (Segment) from Microfrontends (MFEs), a ``user_id`` claim was added to the JWT token `i",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_0010-csrf-protection.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "For background, please see:\n\n* `Transport JWT in HTTP Cookies`_, where we decided the mechanism that frontend apps will ",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_0014-justifying-new-apps.rst",
+    "cluster": 9,
+    "cluster_prob": 1.0,
+    "context_preview": "The Open edX platform is moving toward a more modular architecture. The goal is to transition from a monolithic applicat",
+    "topic": "edx: Translations, plugins, Django infra"
+  },
+  {
+    "source_file": "edx_0012-emit-course-completion-events.rst",
+    "cluster": 10,
+    "cluster_prob": 0.5456150758495638,
+    "context_preview": "#. edX's implementation of xAPI emits course completion event when learner passes a course. Having passed the course onc",
+    "topic": "edx: Learning goals, calendar, email, events"
+  },
+  {
+    "source_file": "edx_0001-sync-certificate-available-dates.rst",
+    "cluster": 11,
+    "cluster_prob": 1.0,
+    "context_preview": "In the Credentials service, certificate_available_date is called visible_date.\nWhenever a generatedCertificate is update",
+    "topic": "edx: Certificates, cert dates"
+  },
+  {
+    "source_file": "edx_0001-anonymous-user-id-generation.rst",
+    "cluster": 16,
+    "cluster_prob": 1.0,
+    "context_preview": "The student app provides a mechanism to generate multiple anonymous ids for a\nstudent.  The anonymous ID can be independ",
+    "topic": "edx: Program enrollments, Georgia Tech, access"
+  },
+  {
+    "source_file": "edx_0013-cms-vs-studio.rst",
+    "cluster": 9,
+    "cluster_prob": 0.4485026722935242,
+    "context_preview": "edx-platform contains two semi-coupled Django projects. Although the projects share a lot of code and data, they have tw",
+    "topic": "edx: Translations, plugins, Django infra"
+  },
+  {
+    "source_file": "edx_0001-calendar-sync-emails-using-ses.rst",
+    "cluster": 10,
+    "cluster_prob": 1.0,
+    "context_preview": "For calendar sync functionality, we would like to send users\nemails with .ics file attachments, which will in turn allow",
+    "topic": "edx: Learning goals, calendar, email, events"
+  },
+  {
+    "source_file": "edx_0031-merge-similar-endpoints.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "Open edX APIs currently expose multiple endpoints that perform closely related operations with only\nminor variations in ",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "memorizer_2025-11-28-memory-similarity-discovery.md",
+    "cluster": 0,
+    "cluster_prob": 1.0,
+    "context_preview": "- Production Memorizer has ~1,900 memories with 384-dimension embeddings\n- This feature serves as a stepping stone befor",
+    "topic": "Memorizer: vector embeddings, chunking, LLM service"
+  },
+  {
+    "source_file": "edx_0011-limit-modulestore-use-in-lms.rst",
+    "cluster": 8,
+    "cluster_prob": 1.0,
+    "context_preview": "Django apps deployed in the LMS sometimes want to make queries about course team authored content, like sequences, units",
+    "topic": "edx: XBlocks, content structure, modulestore"
+  },
+  {
+    "source_file": "edx_0002-instructor-grading-api-spec.rst",
+    "cluster": 15,
+    "cluster_prob": 0.5824382209291934,
+    "context_preview": "The instructor dashboard is being migrated to a Micro-Frontend (MFE) architecture, which requires RESTful API endpoints.",
+    "topic": "edx: Enrollment APIs, Studio APIs, ORA"
+  },
+  {
+    "source_file": "memorizer_2025-05-22-always-return-relationship-type.md",
+    "cluster": 0,
+    "cluster_prob": 0.7487362234157846,
+    "context_preview": "The system supports relationships between memories, modeled by the `MemoryRelationship` class and stored in the `memory_",
+    "topic": "Memorizer: vector embeddings, chunking, LLM service"
+  },
+  {
+    "source_file": "edx_0001-validation-at-course-save.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "Data validation in the Django Rest Framework \"is performed entirely on the serializer class\". Doing validation at\nthe se",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "memorizer_2025-05-23-chunking-integration-test-design.md",
+    "cluster": 0,
+    "cluster_prob": 0.6251527576488555,
+    "context_preview": "The asynchronous memory chunking system introduced complex testing challenges due to its background processing nature. U",
+    "topic": "Memorizer: vector embeddings, chunking, LLM service"
+  },
+  {
+    "source_file": "memorizer_2025-01-27-preserve-original-memories-during-chunking.md",
+    "cluster": 0,
+    "cluster_prob": 1.0,
+    "context_preview": "The current chunking implementation has a critical design flaw: it **destroys the original memory content** by replacing",
+    "topic": "Memorizer: vector embeddings, chunking, LLM service"
+  },
+  {
+    "source_file": "govuk_0003-use-docker-volumes-for-improved-macos-performance.md",
+    "cluster": 1,
+    "cluster_prob": 1.0,
+    "context_preview": "A common problem developers have experienced with GOV.UK Docker is that the\n[asset pipeline][] compilation steps can be ",
+    "topic": "GOV.UK Docker infrastructure"
+  },
+  {
+    "source_file": "govuk_0002-docker-images-for-ruby-applications.md",
+    "cluster": 1,
+    "cluster_prob": 1.0,
+    "context_preview": "In order to run GOV.UK applications in a Docker environment we need\n[Docker images][]. GOV.UK had previously created Doc",
+    "topic": "GOV.UK Docker infrastructure"
+  },
+  {
+    "source_file": "backstage_adr007-use-msw-to-mock-service-requests.md",
+    "cluster": 3,
+    "cluster_prob": 1.0,
+    "context_preview": "Network request mocking can be a total pain sometimes, in all different types of\ntests, unit tests to e2e tests always h",
+    "topic": "Backstage: HTTP/mocking infra"
+  },
+  {
+    "source_file": "edx_004-cert-status.rst",
+    "cluster": 11,
+    "cluster_prob": 0.995989075786654,
+    "context_preview": "",
+    "topic": "edx: Certificates, cert dates"
+  },
+  {
+    "source_file": "edx_0001-determining-discount-location.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "We are implementing platform-wide discounts that are determined using a combination of course and user. The\ndata used in",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_0002-no-new-track.rst",
+    "cluster": 16,
+    "cluster_prob": 0.8412635247526001,
+    "context_preview": "In order to implement Feature Based Enrollment (FBE), we need a way\nto differentiate between users who have access to gr",
+    "topic": "edx: Program enrollments, Georgia Tech, access"
+  },
+  {
+    "source_file": "edx_001-scheduling-instructor-tasks.rst",
+    "cluster": 10,
+    "cluster_prob": 1.0,
+    "context_preview": "",
+    "topic": "edx: Learning goals, calendar, email, events"
+  },
+  {
+    "source_file": "edx_0007-topic-context-for-deletion.rst",
+    "cluster": 6,
+    "cluster_prob": 0.954643554525834,
+    "context_preview": "The ``DiscussionTopicLink``model currently stores all relevant information\nfor topics in a course. It can handle both co",
+    "topic": "edx: Discussions, teams, course features"
+  },
+  {
+    "source_file": "edx_0037-api-versioning-strategy.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "Open edX has multiple API versions in parallel (e.g., v0/v1/v2/v3) which creates confusion about\nwhich version is stable",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "backstage_adr003-avoid-default-exports.md",
+    "cluster": 4,
+    "cluster_prob": 1.0,
+    "context_preview": "When CommonJS was the primary authoring format, the best practice was to export\nonly one thing from a module using the `",
+    "topic": "Backstage + govuk: ADR meta, plugins, general architecture"
+  },
+  {
+    "source_file": "edx_0028-migrate-restful-and-legacy-api-endpoints-using-standard-drf-viewsets.rst",
+    "cluster": 13,
+    "cluster_prob": 0.7137175337644193,
+    "context_preview": "Many Open edX platform API endpoints are currently implemented as separate, individual\nclass-based or function-based (le",
+    "topic": "edx: API standardization (serializers, errors, filtering)"
+  },
+  {
+    "source_file": "edx_0008-reported-content-email-notifications.rst",
+    "cluster": 6,
+    "cluster_prob": 1.0,
+    "context_preview": "We need to provide an option for quick visibility of reported content for\nmoderators. We plan to implement this by addin",
+    "topic": "edx: Discussions, teams, course features"
+  },
+  {
+    "source_file": "edx_0003-persistent-grades.rst",
+    "cluster": 14,
+    "cluster_prob": 1.0,
+    "context_preview": "There are several reasons that we need to persist a learner's computed grade in the database,\nboth at the subsection-lev",
+    "topic": "edx: Persistent grades, grade overrides"
+  },
+  {
+    "source_file": "govuk_0001-record-architecture-decisions.md",
+    "cluster": 4,
+    "cluster_prob": 0.25650266999824706,
+    "context_preview": "We need to record the architectural decisions made on this project.\n\nThe [original govuk-docker repo](https://github.com",
+    "topic": "Backstage + govuk: ADR meta, plugins, general architecture"
+  },
+  {
+    "source_file": "edx_0002-gradebook-front-end.rst",
+    "cluster": 14,
+    "cluster_prob": 0.22790016681143457,
+    "context_preview": "We are implementing a \"Writable Gradebook\" feature from the instructor dashboard.  For additional\nbackground see 0001-gr",
+    "topic": "edx: Persistent grades, grade overrides"
+  },
+  {
+    "source_file": "edx_0026-standardize-permission-classes.rst",
+    "cluster": 5,
+    "cluster_prob": 1.0,
+    "context_preview": "Permissions are inconsistently applied across Open edX apps using custom decorators, inline role-based checks, and embed",
+    "topic": "edx: Permissions, ratelimiting, SSO"
+  },
+  {
+    "source_file": "edx_0003-enrollments-into-course-shared-by-programs.rst",
+    "cluster": 16,
+    "cluster_prob": 0.8412635247526001,
+    "context_preview": "For the spring term 2020 (Starting Jan 6th), Georgia Tech has created 3\ndifferent Masters programs on edX. One such Mast",
+    "topic": "edx: Program enrollments, Georgia Tech, access"
+  },
+  {
+    "source_file": "edx_0004-managing-django-settings.rst",
+    "cluster": 9,
+    "cluster_prob": 0.6415959222438383,
+    "context_preview": "Settings are confusing right now and there are way too many layers. We have\nmultiple python settings file that \"inherit\"",
+    "topic": "edx: Translations, plugins, Django infra"
+  },
+  {
+    "source_file": "backstage_adr005-catalog-core-entities.md",
+    "cluster": 4,
+    "cluster_prob": 0.4341554624373552,
+    "context_preview": "We want to standardize on a few core entities that we are tracking in the\nBackstage catalog. This allows us to build spe",
+    "topic": "Backstage + govuk: ADR meta, plugins, general architecture"
+  },
+  {
+    "source_file": "edx_003-web-certs.rst",
+    "cluster": 11,
+    "cluster_prob": 1.0,
+    "context_preview": "",
+    "topic": "edx: Certificates, cert dates"
+  },
+  {
+    "source_file": "edx_0008-use-asymmetric-jwts.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "The edX OAuth Provider (via this OAuth Dispatch Django app) builds and returns JSON Web Tokens (JWTs)\nwhen an OAuth clie",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_0012-scope-and-filter-for-third-party-auth.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "The permission class ``ThirdPartyAuthProviderApiPermission`` exists to protect a single view, ``UserMappingView``.  The ",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_0004-personalized-relative-dates.rst",
+    "cluster": 10,
+    "cluster_prob": 0.7871223211075333,
+    "context_preview": "Self-paced courses are, based on the experience of users on edx.org,\nless engaging and less likely to be completed, than",
+    "topic": "edx: Learning goals, calendar, email, events"
+  },
+  {
+    "source_file": "edx_0034-unify-auth-oauth2-dot-v2.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "Open edX APIs have inconsistent authentication patterns and security scheme implementations:\n\n* Multiple authentication ",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_008-certificate-model-remnants.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "As part of the `deprecation of PDF certificates`_, we had to make a decision about the future of several existing fields",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_0001-move-due-dates-to-db.rst",
+    "cluster": 10,
+    "cluster_prob": 0.5462087659693672,
+    "context_preview": "We want an authoritative and readily-accessible place to track due dates for sections/units in a course.  We also want t",
+    "topic": "edx: Learning goals, calendar, email, events"
+  },
+  {
+    "source_file": "edx_0005-grade-freeze.rst",
+    "cluster": 14,
+    "cluster_prob": 0.22199228850903652,
+    "context_preview": "We would like to prevent subsection-level and course-level grades from being\nupdated in a course that has ended, after s",
+    "topic": "edx: Persistent grades, grade overrides"
+  },
+  {
+    "source_file": "edx_0009-jwt-in-session-cookie.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "For background, please see:\n\n* `Use JWT as OAuth2 Tokens`_, where we decided to use JSON Web Tokens (JWTs) as OAuth2 acc",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_0001-course-info-api-spec.rst",
+    "cluster": 15,
+    "cluster_prob": 1.0,
+    "context_preview": "The instructor dashboard requires comprehensive course metadata, enrollment statistics, user\npermissions, and navigation",
+    "topic": "edx: Enrollment APIs, Studio APIs, ORA"
+  },
+  {
+    "source_file": "edx_0014-add-grant-type-in-jwt-payload.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "Open edX mobile apps are `migrating to JWT token`_ authentication.\nAs part of the current mobile authentication flow, we",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "memorizer_2026-02-14-hybrid-search-rrf.md",
+    "cluster": 0,
+    "cluster_prob": 1.0,
+    "context_preview": "The search quality evaluation framework (issue #132) quantified a persistent problem: short keyword queries like \"race c",
+    "topic": "Memorizer: vector embeddings, chunking, LLM service"
+  },
+  {
+    "source_file": "edx_0001-courses-in-lms.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "**Note:** Within the context of the LMS, \"Course\" means \"Course Runs\", as defined in the `edX DDD Ubiquitous Language`_.",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_0011-scope-filter-support.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "For background, please see:\n\n* `Include Organizations in Tokens`_, where we decided to include a `content_org` filter in",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_0010-extract-enrollment-python-api.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "edx-enterprise bulk enrollment use case currently invokes the mentioned endpoint once per learner + course\nwhich leads t",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "govuk_0004-use-versioned-database-services.md",
+    "cluster": 1,
+    "cluster_prob": 1.0,
+    "context_preview": "GOV.UK Docker has services defined for various databases, such as PostgreSQL,\nMongoDB and Elasticsearch. These have thei",
+    "topic": "GOV.UK Docker infrastructure"
+  },
+  {
+    "source_file": "edx_0005-studio-lms-subdomain-boundaries.rst",
+    "cluster": 9,
+    "cluster_prob": 0.40077962371448245,
+    "context_preview": "The ``edx-platform`` repo contains both Studio and the LMS for Open edX. These\ntwo systems roughly correspond to the Con",
+    "topic": "edx: Translations, plugins, Django infra"
+  },
+  {
+    "source_file": "edx_0032-standardize-pagination-usage.rst",
+    "cluster": 13,
+    "cluster_prob": 1.0,
+    "context_preview": "Open edX platform API endpoints use multiple, inconsistent pagination strategies. Some endpoints use ``limit``/``offset`",
+    "topic": "edx: API standardization (serializers, errors, filtering)"
+  },
+  {
+    "source_file": "edx_0006-overrides-applied-separately.rst",
+    "cluster": 14,
+    "cluster_prob": 1.0,
+    "context_preview": "We want to maintain the score values in the ``PersistentSubsectionGrade`` table as a\nsource of truth as it relates to th",
+    "topic": "edx: Persistent grades, grade overrides"
+  },
+  {
+    "source_file": "memorizer_2025-05-23-memory-search-ranking.md",
+    "cluster": 0,
+    "cluster_prob": 0.639900919853252,
+    "context_preview": "The memory search system is used by both LLMs and human users to retrieve relevant memories from a vector database. Prev",
+    "topic": "Memorizer: vector embeddings, chunking, LLM service"
+  },
+  {
+    "source_file": "edx_0035-canonical-mfe-configuration-endpoint.rst",
+    "cluster": 9,
+    "cluster_prob": 0.5815020226693046,
+    "context_preview": "Open edX MFEs (and, under OEP-65, frontend-base modules) read their runtime\nconfiguration from an HTTP endpoint rather t",
+    "topic": "edx: Translations, plugins, Django infra"
+  },
+  {
+    "source_file": "edx_0001-course-uuid-retrieved-by-api.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "Course UUID is a more reliable and consistently unique identifier for a Course.",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "backstage_adr004-module-export-structure.md",
+    "cluster": 4,
+    "cluster_prob": 0.8912848890451208,
+    "context_preview": "With a growing number of exports of packages like `@backstage/core-components`,\nit is becoming more and more difficult t",
+    "topic": "Backstage + govuk: ADR meta, plugins, general architecture"
+  },
+  {
+    "source_file": "edx_0002-permissions-via-django-rules.rst",
+    "cluster": 5,
+    "cluster_prob": 1.0,
+    "context_preview": "`OEP-9`_ mandates the use of `django-rules`_ to provide a flexible\nimplementation of permissions in edX applications. `e",
+    "topic": "edx: Permissions, ratelimiting, SSO"
+  },
+  {
+    "source_file": "backstage_adr013-use-node-fetch.md",
+    "cluster": 3,
+    "cluster_prob": 1.0,
+    "context_preview": "Using multiple HTTP packages for data fetching increases the complexity and the\nsupport burden of keeping said package u",
+    "topic": "Backstage: HTTP/mocking infra"
+  },
+  {
+    "source_file": "edx_0001-logging-and-monitoring-ignored-errors.rst",
+    "cluster": 12,
+    "cluster_prob": 1.0,
+    "context_preview": "We had two recent Production issues that took longer than necessary to diagnose because they involved errors that are cu",
+    "topic": "edx: Logging, monitoring, idempotency"
+  },
+  {
+    "source_file": "edx_0001-extensions-to-inter-app-apis.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "In order to improve the maintainability and stability of our applications, we\nintroduced ``edx-platform/docs/decisions/0",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "memorizer_2025-05-21-plain-text-memory-column.md",
+    "cluster": 0,
+    "cluster_prob": 0.5894608633806854,
+    "context_preview": "Originally the `memories` table stored the user-supplied material only inside a `JSONB content` column.  While JSON is g",
+    "topic": "Memorizer: vector embeddings, chunking, LLM service"
+  },
+  {
+    "source_file": "edx_0003-hybrid-approach-for-public-apis.rst",
+    "cluster": 15,
+    "cluster_prob": 0.5902428591447876,
+    "context_preview": "We are planning to offer public APIs via oauth that allow course authors to create\nand update course content via an exte",
+    "topic": "edx: Enrollment APIs, Studio APIs, ORA"
+  },
+  {
+    "source_file": "edx_0004-oauth-dispatch-as-router.rst",
+    "cluster": 2,
+    "cluster_prob": 0.9856544362821199,
+    "context_preview": "Although we decided to transition from DOP to DOT and from OpenID Connect to\nJWT Tokens, we are not able to update all o",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_0005-restricted-application-for-SSO.rst",
+    "cluster": 2,
+    "cluster_prob": 1.0,
+    "context_preview": "External edX clients would like to use edX as an Identity Provider and verify\nthe edX identity of a user. The OAuth2 pro",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_0002-migrate-to-dot.rst",
+    "cluster": 2,
+    "cluster_prob": 0.9815907467172865,
+    "context_preview": "The edX LMS uses the `Django OAuth Provider (DOP)`_ library in order to support\nthe OAuth2_ provider protocol. However, ",
+    "topic": "edx: Auth / JWT / OAuth / scopes"
+  },
+  {
+    "source_file": "edx_0027-standardize-api-documentation-and-schema-coverage.rst",
+    "cluster": 13,
+    "cluster_prob": 0.6583767617868643,
+    "context_preview": "Many Open edX views lack proper OpenAPI schema decorators and machine-readable\ndocumentation. This makes it difficult fo",
+    "topic": "edx: API standardization (serializers, errors, filtering)"
+  },
+  {
+    "source_file": "edx_007-transfer-certificate-signatures-from-mongo.rst",
+    "cluster": 11,
+    "cluster_prob": 1.0,
+    "context_preview": "As a part of `Old Mongo Deprecation`_ work, we are planning to remove the support for c4x assets.\nAfter removing the sup",
+    "topic": "edx: Certificates, cert dates"
+  },
+  {
+    "source_file": "edx_0003-leave-course-waffle-flag.rst",
+    "cluster": 7,
+    "cluster_prob": 0.7866413030680225,
+    "context_preview": "It was decided in 0002-waffle-utils-extraction to remove waffle_utils to the shared library edx-toggles.  However, movin",
+    "topic": "edx: Waffle flags / toggles"
+  },
+  {
+    "source_file": "edx_0002-remove-mongodb-dependency.rst",
+    "cluster": 8,
+    "cluster_prob": 0.9303234651367518,
+    "context_preview": "The edx-platform repo uses MongoDB for storing content (the ModuleStore and ContentStore interfaces). MongoDB was chosen",
+    "topic": "edx: XBlocks, content structure, modulestore"
+  },
+  {
+    "source_file": "backstage_adr014-use-fetch.md",
+    "cluster": 3,
+    "cluster_prob": 1.0,
+    "context_preview": "Until now we have been recommending the use of `node-fetch` in Node.js contexts\nthrough [ADR013](./adr013-use-node-fetch",
+    "topic": "Backstage: HTTP/mocking infra"
+  },
+  {
+    "source_file": "backstage_adr000-template.md",
+    "cluster": 4,
+    "cluster_prob": 0.3631049803145784,
+    "context_preview": "<!--\nThis section describes the forces at play, including technological, political, social, and project local. These for",
+    "topic": "Backstage + govuk: ADR meta, plugins, general architecture"
+  },
+  {
+    "source_file": "edx_0001-monitoring-by-code-owner.rst",
+    "cluster": 12,
+    "cluster_prob": 1.0,
+    "context_preview": "It is currently difficult for different teams to have team-based on-calls rotations, alerting and monitoring for various",
+    "topic": "edx: Logging, monitoring, idempotency"
+  },
+  {
+    "source_file": "edx_0002-organization-wide-provider-filtering.rst",
+    "cluster": 6,
+    "cluster_prob": 1.0,
+    "context_preview": "As part of the BD-03 initiative (Blended Development, Project 3),\nwe want to allow Organizations to filter the list of a",
+    "topic": "edx: Discussions, teams, course features"
+  },
+  {
+    "source_file": "backstage_adr006-avoid-react-fc.md",
+    "cluster": 4,
+    "cluster_prob": 1.0,
+    "context_preview": "Facebook has removed `React.FC` from their base template for a TypeScript\nproject. The reason for this was that it was f",
+    "topic": "Backstage + govuk: ADR meta, plugins, general architecture"
+  },
+  {
+    "source_file": "edx_0001-externalid.rst",
+    "cluster": -1,
+    "cluster_prob": 0.0,
+    "context_preview": "Third Parties at times require a unique user ID as part of the data that they can\naccess about a Learner. We would like ",
+    "topic": "Noise / miscellaneous"
+  },
+  {
+    "source_file": "edx_005-cert-display-settings.rst",
+    "cluster": 11,
+    "cluster_prob": 1.0,
+    "context_preview": "",
+    "topic": "edx: Certificates, cert dates"
+  },
+  {
+    "source_file": "memorizer_2025-05-23-fix-infinite-recursion-connection-leak.md",
+    "cluster": 0,
+    "cluster_prob": 0.7487362234157846,
+    "context_preview": "The PostgMem system experienced critical connection pool exhaustion under load, manifesting as PostgreSQL \"too many clie",
+    "topic": "Memorizer: vector embeddings, chunking, LLM service"
+  }
