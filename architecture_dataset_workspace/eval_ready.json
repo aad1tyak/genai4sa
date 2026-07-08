@@ -425,3 +425,4 @@
     "decision": "**Replace recursive N+1 pattern with efficient JOIN queries:**",
     "consequences": "### Positive:\n- \u2705 **Eliminates infinite recursion** - no more circular method calls\n- \u2705 **Fixes connection leaks** - each method opens exactly one connection  \n- \u2705 **Improves performance** - single JOIN query vs N+1 recursive queries\n- \u2705 **Predictable behavior** - no unbounded recursion or memory growth\n- \u2705 **Simpler code** - removes complex depth-limiting workarounds"
   }
+]
