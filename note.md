@@ -13,16 +13,16 @@ This project evaluates whether LLMs are capable of constraint-aware reasoning ab
 Architectural Decision Records (ADRs) are extracted from open-source projects and
 parsed into a structured JSONL dataset for LLM evaluation.
 
-**Source repositories** (all shallow-cloned via `extract_adrs.sh`):
+**Source repositories** (all shallow-cloned via `extract_adrs.sh`, depth=1):
 
-| Repo | ADRs found | Parsed |
-|---|---|---|
-| openedx/edx-platform | 141 | 112 |
-| backstage/backstage | 17 | 13 |
-| adr/madr | 21 | 0* |
-| alphagov/govuk-docker | 6 | 4 |
-| petabridge/memorizer | 12 | 10 |
-| **Total** | **195** | **139** |
+| Repo | URL | ADRs found | Parsed |
+|---|---|---|---|
+| Open edX | https://github.com/openedx/edx-platform.git | 141 | 112 |
+| Backstage (Spotify) | https://github.com/backstage/backstage.git | 17 | 13 |
+| MADR (ADR standard) | https://github.com/adr/madr.git | 21 | 0* |
+| GOV.UK Docker | https://github.com/alphagov/govuk-docker.git | 6 | 4 |
+| Petabridge Memorizer | https://github.com/petabridge/memorizer.git | 12 | 10 |
+| **Total** | — | **195** | **139** |
 
 *\* MADR files describe the ADR format itself, not actual architecture decisions.*
 
@@ -88,6 +88,57 @@ Given only the context, the LLM must propose an architectural decision and its t
 | B — Generate prompts | `generate_prompts.py` | `eval_ready.json` | `eval_prompts.json` (71 prompts) |
 | C — Run LLM | `run_eval.py` | `eval_prompts.json` | `eval_results.json` |
 | D — Score | *(pending)* | `eval_results.json` | ROUGE-L scores |
+
+### Curated Shortlist (for initial small-scale testing)
+
+14 ADRs hand-picked for rich, self-contained context and clear architectural decisions:
+
+| # | Source | Topic |
+|---|---|---|
+| 1 | edx — XBlock role | Constraining an overly flexible runtime |
+| 2 | edx — JWT vs OpenID Connect | Auth protocol migration |
+| 3 | edx — Public API hybrid approach | Conflict resolution in concurrent editing |
+| 4 | edx — Standardize error responses | API design consistency |
+| 5 | edx — Canonical MFE config endpoint | Consolidating front-end configuration |
+| 6 | edx — CMS vs Studio naming | Service identity architecture |
+| 7 | edx — GET idempotency | REST principle enforcement |
+| 8 | edx — Personalized relative dates | UX-driven scheduling architecture |
+| 9 | backstage — Plugin package structure | Monorepo organization |
+| 10 | backstage — Avoid default exports | Code standard with rationale |
+| 11 | govuk — Docker volumes for macOS | Performance-driven infrastructure |
+| 12 | govuk — Docker images for Ruby | Build strategy decisions |
+| 13 | memorizer — Hybrid search RRF | Search quality improvement |
+| 14 | memorizer — Memory search ranking | Ranking algorithm design |
+
+**File:** `architecture_dataset_workspace/eval_curated.json`
+
+### Project Inventory
+
+Organized under `eval/`:
+
+```
+eval/
+├── data/                          # datasets
+│   ├── adr_dataset.jsonl          # 139 parsed ADRs
+│   ├── adr_clusters.json          # TF-IDF cluster assignments
+│   ├── adr_clusters_semantic.json # semantic cluster assignments
+│   ├── eval_ready.json            # 71 filtered (all 3 fields)
+│   └── eval_curated.json          # 14 hand-picked for eval
+├── scripts/                       # pipeline scripts
+│   ├── extract_adrs.sh            # clone repos + extract
+│   ├── parse_adrs.py              # parse to JSONL
+│   ├── cluster_adrs.py            # TF-IDF clustering
+│   ├── prepare_eval.py            # filter to 71 records
+│   ├── generate_prompts.py        # generate Task 1 prompts
+│   ├── run_eval.py                # basic LLM runner
+│   ├── run_curated.py             # curated-list runner
+│   └── run_sequential.py          # example→test sequential eval
+├── results/                       # LLM outputs
+│   ├── prompts_all.json           # all 71 Task 1 prompts
+│   ├── task1_backstage.json       # Task 1 run on backstage
+│   └── sequential_clusters_1_4.json # sequential eval (GovUK + Backstage)
+└── reports/                       # (future) scored results
+```
 
 **Usage (Step C):**
 ```bash
