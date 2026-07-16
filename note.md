@@ -1,151 +1,105 @@
 # gai4sa — Generative AI for Software Architecture
 
-**Research question:** Can LLMs generate software architectures or "think like architects"?
+**Research question:** Can LLMs "think like architects" — i.e., generate constraint-aware software architecture decisions from context, not just syntactically generate diagram structures?
 
 ## Overview
 
-This project evaluates whether LLMs are capable of constraint-aware reasoning about software architecture — as opposed to just syntactically generating diagram structures. It critiques existing benchmarks (SADU, R2ABench) for measuring topological compliance rather than genuine architectural cognition.
+We evaluate LLMs on Architectural Decision Records (ADRs) from real open-source projects. The core idea: strip the Decision and Consequences from an ADR, give the LLM only the Context (and optionally example ADRs), and see if it can reconstruct a valid architecture decision.
 
 ## Pipeline
 
-### Step 1 — ADR Dataset Collection (done)
+### Step 1 — Dataset (done)
+139 parsed ADRs from 5 repos: Open edX (112), Backstage (13), MADR (0 — format docs), GOV.UK Docker (4), Memorizer (10).
 
-Architectural Decision Records (ADRs) are extracted from open-source projects and
-parsed into a structured JSONL dataset for LLM evaluation.
+### Step 2 — Clustering (done)
+Semantic clustering (all-MiniLM-L6-v2 → UMAP → HDBSCAN) produced 17 clusters + 19 noise. Used for sequential eval cross-validation.
 
-**Source repositories** (all shallow-cloned via `extract_adrs.sh`, depth=1):
+### Step 3 — Evaluation (done, 8 test cases)
+Two task designs evaluated with GPT-4o:
 
-| Repo | URL | ADRs found | Parsed |
-|---|---|---|---|
-| Open edX | https://github.com/openedx/edx-platform.git | 141 | 112 |
-| Backstage (Spotify) | https://github.com/backstage/backstage.git | 17 | 13 |
-| MADR (ADR standard) | https://github.com/adr/madr.git | 21 | 0* |
-| GOV.UK Docker | https://github.com/alphagov/govuk-docker.git | 6 | 4 |
-| Petabridge Memorizer | https://github.com/petabridge/memorizer.git | 12 | 10 |
-| **Total** | — | **195** | **139** |
+**Task 1 — Forward (Context → Decision + Consequences):** Single ADR, strip Decision+Consequences, LLM reconstructs from Context only.
 
-*\* MADR files describe the ADR format itself, not actual architecture decisions.*
+**Task 2 — Sequential (Example ADR → Test ADR):** Give 1-2 full example ADRs from same cluster, then present test ADR's Context only. Tests pattern transfer — can the LLM learn the project's architectural style from examples?
 
-**Scripts:**
-- `architecture_dataset_workspace/extract_adrs.sh` — clones repos and copies ADR files into `compiled_adr_dataset/`
-- `architecture_dataset_workspace/parse_adrs.py` — parses raw ADRs into structured JSONL (`adr_dataset.jsonl`)
-
-**Output:** `architecture_dataset_workspace/adr_dataset.jsonl` — 139 records with fields `source_file`, `status`, `context`, `decision`, `consequences`, `raw_text`.
-
-**Coverage:**
-- Context: 94%
-- Decision: 71%
-- Consequences: 71%
-- Status: 73%
-
-### Step 2.1 — Semantic Clustering (done)
-
-Two clustering approaches compared:
-
-**TF-IDF** (local, fast): `cluster_adrs.py` → `adr_clusters.json` — 14 clusters + 10 noise
-**Semantic** (Colab, sentence-transformers): `cluster_adrs_colab.ipynb` → `adr_clusters_semantic.json` — 17 clusters + 19 noise
-
-The semantic approach gives cleaner separation (pure govuk cluster, pure Backstage sub-clusters) at the cost of more noise points.
-
-| Cluster | Size | Source | Topic |
-|---|---|---|---|
-| -1 | 19 | mixed | Noise — hard-to-classify |
-| 0 | 11 | memorizer (10) + edx (1) | Vector embeddings, chunking, LLM service |
-| 1 | 3 | govuk | Docker infrastructure |
-| 2 | 15 | edx | Auth / JWT / OAuth / scopes |
-| 3 | 3 | backstage | HTTP/mocking infra |
-| 4 | 10 | backstage (8) + edx + govuk | ADR meta, plugins, general architecture |
-| 5 | 5 | edx | Permissions, ratelimiting, SSO |
-| 6 | 9 | edx | Discussions, teams, course features |
-| 7 | 4 | edx | Waffle flags / toggles |
-| 8 | 5 | edx | XBlocks, content structure, modulestore |
-| 9 | 11 | edx | Translations, plugins, Django infra |
-| 10 | 7 | edx | Learning goals, calendar, email, events |
-| 11 | 6 | edx | Certificates, cert dates |
-| 12 | 4 | edx | Logging, monitoring, idempotency |
-| 13 | 8 | edx | API standardization (serializers, errors, filtering) |
-| 14 | 5 | edx | Persistent grades, grade overrides |
-| 15 | 8 | edx | Enrollment APIs, Studio APIs, ORA |
-| 16 | 6 | edx | Program enrollments, Georgia Tech, access
-
-### Step 3 — Ablation Evaluation Pipeline (in progress)
-
-Instead of manually writing questions or using LLMs to generate them, we built a **deterministic ablation pipeline** that generates evaluation prompts programmatically from the ADR data itself.
-
-**Core idea:** Strip one or two fields from each ADR and ask the LLM to reconstruct them. The ground truth is the original field — scored with ROUGE-L (deterministic, no LLM-as-judge needed).
-
-**Task 1 — Forward (Context → Decision + Consequences):**
-Given only the context, the LLM must propose an architectural decision and its trade-offs. Tests whether the LLM can design a valid architecture from constraints.
-
-**Data:** 71 ADRs with all 3 core fields (Context, Decision, Consequences) sufficiently filled.
-- edx: 45 | backstage: 12 | memorizer: 10 | govuk: 4
-
-**Pipeline (modular scripts, one step each):**
-
-| Step | Script | Input | Output |
-|---|---|---|---|
-| A — Filter | `prepare_eval.py` | `adr_dataset.jsonl` | `eval_ready.json` (71 records) |
-| B — Generate prompts | `generate_prompts.py` | `eval_ready.json` | `eval_prompts.json` (71 prompts) |
-| C — Run LLM | `run_eval.py` | `eval_prompts.json` | `eval_results.json` |
-| D — Score | *(pending)* | `eval_results.json` | ROUGE-L scores |
-
-### Curated Shortlist (for initial small-scale testing)
-
-14 ADRs hand-picked for rich, self-contained context and clear architectural decisions:
-
-| # | Source | Topic |
+We ran 8 sequential cases across 4 clusters:
+| Cluster | Test Case | Status |
 |---|---|---|
-| 1 | edx — XBlock role | Constraining an overly flexible runtime |
-| 2 | edx — JWT vs OpenID Connect | Auth protocol migration |
-| 3 | edx — Public API hybrid approach | Conflict resolution in concurrent editing |
-| 4 | edx — Standardize error responses | API design consistency |
-| 5 | edx — Canonical MFE config endpoint | Consolidating front-end configuration |
-| 6 | edx — CMS vs Studio naming | Service identity architecture |
-| 7 | edx — GET idempotency | REST principle enforcement |
-| 8 | edx — Personalized relative dates | UX-driven scheduling architecture |
-| 9 | backstage — Plugin package structure | Monorepo organization |
-| 10 | backstage — Avoid default exports | Code standard with rationale |
-| 11 | govuk — Docker volumes for macOS | Performance-driven infrastructure |
-| 12 | govuk — Docker images for Ruby | Build strategy decisions |
-| 13 | memorizer — Hybrid search RRF | Search quality improvement |
-| 14 | memorizer — Memory search ranking | Ranking algorithm design |
+| 0 (Memorizer) | hybrid-search-rrf | Good — near-perfect pattern transfer |
+| 0 (Memorizer) | memory-search-ranking | Good — captured tag soft-boosting |
+| 1 (GOV.UK) | docker-volumes | Weak — generic, missed specifics |
+| 1 (GOV.UK) | docker-images | Weak — missed build details |
+| 4 (Backstage) | plugin-package-structure | Weak — invented wrong naming convention |
+| 4 (Backstage) | avoid-default-exports | Weak — correct topic but missed specifics |
+| 9 (edx) | canonical-mfe-config | Strong — closely matched endpoint reasoning |
+| 9 (edx) | cms-vs-studio | Solid — correct terminology decision |
 
-**File:** `architecture_dataset_workspace/eval_curated.json`
+### Step 4 — Scoring Pipeline (done)
+Two-stage deterministic scoring, no LLM-as-judge:
 
-### Project Inventory
+**Stage 1 — Semantic Alignment:** `cross-encoder/stsb-distilroberta-base` computes sentence-level similarity between response and ground truth. Threshold 0.3 calibrated as the sweet spot (alignment ratio 85-100%).
 
-Organized under `eval/`:
+**Stage 2 — NLI Verification:** `cross-encoder/nli-deberta-v3-base` (fine-tuned on MNLI/SNLI) classifies aligned pairs as ENTAILMENT / NEUTRAL / CONTRADICTION.
+
+**Key calibration finding:** The NLI model is conservative — strong matches get ENTAILMENT (edx config: 80% entailment rate), but generic rephrases or summaries get NEUTRAL. This is expected behavior for off-the-shelf NLI on architecture text.
+
+**Results at threshold 0.3:**
+| Case | Alignment | Entail (GT) | Entail (Resp) | Contra |
+|---|---|---|---|---|
+| govuk volumes | 1.000 | 0.000 | 0.000 | 0.000 |
+| govuk images | 1.000 | 0.091 | 0.118 | 0.000 |
+| backstage plugin | 1.000 | 0.000 | 0.000 | 0.000 |
+| backstage exports | 1.000 | 0.000 | 0.000 | 0.056 |
+| memorizer hybrid | 1.000 | 0.000 | 0.000 | 0.000 |
+| memorizer ranking | 0.846 | 0.154 | 0.273 | 0.000 |
+| **edx config** | **0.952** | **0.113** | **0.800** | 0.000 |
+| edx cms/studio | 0.900 | 0.200 | 0.312 | 0.000 |
+
+**Zero contradictions detected** across all 8 cases — LLM doesn't make stuff up. Strong pattern-transfer signal for edx and Memorizer cases.
+
+### Step 5 — MiniCheck Integration (in progress)
+Discovered `MiniCheck` (Tang et al., EMNLP 2024) — a 770M parameter fact-checking model that matches GPT-4-level performance at 400x lower cost. Key advantage over our current NLI: **binary output** (supported/unsupported, no NEUTRAL escape hatch). Training data is synthetic GPT-4 generated data designed to mimic real LLM hallucination patterns.
+
+Planned architecture for final scoring:
+- **Precision:** MiniCheck(GT, response_sentence) → is each claim grounded?
+- **Recall:** MiniCheck(response, GT_sentence) → is each GT point covered?
+- Combined → definitive yes/no per case, no NEUTRAL ambiguity
+
+**File:** `eval/scripts/test_minicheck.py`
+
+## Next Steps
+
+1. Finish MiniCheck eval on all 8 cases (CPU inference: ~15s per pair, ~45 min total)
+2. If MiniCheck passes, replace NLI stage with MiniCheck
+3. Compare MiniCheck results against our NLI pipeline + human expert review
+4. Expand to full 71-ADR dataset
+5. Cross-model comparison (GPT-4o vs Gemini Pro 3)
+
+## Project Structure
 
 ```
 eval/
-├── data/                          # datasets
-│   ├── adr_dataset.jsonl          # 139 parsed ADRs
-│   ├── adr_clusters.json          # TF-IDF cluster assignments
-│   ├── adr_clusters_semantic.json # semantic cluster assignments
-│   ├── eval_ready.json            # 71 filtered (all 3 fields)
-│   └── eval_curated.json          # 14 hand-picked for eval
-├── scripts/                       # pipeline scripts
-│   ├── extract_adrs.sh            # clone repos + extract
-│   ├── parse_adrs.py              # parse to JSONL
-│   ├── cluster_adrs.py            # TF-IDF clustering
-│   ├── prepare_eval.py            # filter to 71 records
-│   ├── generate_prompts.py        # generate Task 1 prompts
-│   ├── run_eval.py                # basic LLM runner
-│   ├── run_curated.py             # curated-list runner
-│   └── run_sequential.py          # example→test sequential eval
-├── results/                       # LLM outputs
-│   ├── prompts_all.json           # all 71 Task 1 prompts
-│   ├── task1_backstage.json       # Task 1 run on backstage
-│   └── sequential_clusters_1_4.json # sequential eval (GovUK + Backstage)
-└── reports/                       # (future) scored results
+├── data/
+│   ├── adr_dataset.jsonl               # 139 parsed ADRs
+│   ├── adr_clusters_semantic.json      # semantic cluster assignments
+│   ├── eval_ready.json                 # 71 with all 3 fields
+│   └── eval_curated.json               # 14 hand-picked
+├── scripts/
+│   ├── parse_adrs.py / cluster_adrs.py / prepare_eval.py / generate_prompts.py
+│   ├── run_sequential.py               # sequential eval runner
+│   ├── score_sequential.py             # two-stage scoring pipeline
+│   └── test_minicheck.py               # MiniCheck integration test
+├── results/
+│   ├── sequential_clusters_1_4.json             # GPT-4o results (GOV.UK + Backstage)
+│   ├── eval_results_sequential_clusters_0_9.json # GPT-4o results (Memorizer + edx)
+│   ├── sequential_clusters_1_4_scored.json       # scored with alignment + NLI
+│   └── minicheck_results.json                    # (pending) MiniCheck binary results
+└── reports/
 ```
 
-**Usage (Step C):**
-```bash
-export LLM_API_URL="https://your-api/v1"
-export LLM_MODEL="gemini-3-pro"
-export LLM_API_KEY="your-key"
-python run_eval.py
-python run_eval.py --dry-run           # preview without sending
-python run_eval.py --start 0 --end 10  # run a subset
-```
+## Key Technical Decisions
+
+- **No LLM-generated questions** — all prompts are deterministic string substitutions from ADR fields
+- **Sequential eval preferred** — tests pattern transfer, not keyword recall
+- **Cross-encoder alignment + NLI** — reference-free scoring pipeline
+- **MiniCheck as next step** — binary verdicts eliminate NEUTRAL ambiguity
+- **CPU inference for now** — all models run on CPU; MiniCheck ~15s/pair
